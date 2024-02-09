@@ -1,0 +1,99 @@
+.custom-navbar {
+background: transparent;
+  color: #c4e3f8;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.25rem 1rem;
+  position: fixed; /* Make navbar fixed at the top */
+  top: 0; /* Position at the very top of the page */
+  left: 0; /* Stretch from the left edge */
+  right: 0; /* Stretch to the right edge */
+  z-index: 1000; 
+
+  }
+  
+  .navbar-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    /* Set a specific height and width for the logo */
+    height: auto; /* or any size that fits well */
+    width: 80px; /* maintains the aspect ratio */
+  }
+
+  .logo-brand {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-brand {
+    color: #c4e3f8;
+    text-decoration: none;
+  padding-left: 0.5rem;
+  margin-left: 0.5rem; /* Add margin if needed */
+  }
+  
+  .navbar-toggler {
+    display: none;
+    background: none;
+    border: none;
+    color: #c4e3f8;
+    font-size: 1.5rem;
+  }
+  
+  .navbar-menu {
+    display: flex;
+  }
+  
+  .navbar-nav {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-item .nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+  }
+  
+  /* Media query for mobile screens */
+  @media (max-width: 768px) {
+    .navbar-toggler {
+      display: block;
+    }
+  
+    .navbar-menu {
+      display: none;
+    }
+  
+    .navbar-menu.show {
+      display: flex;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background-image:linear-gradient(to right ,#1d1d1b, #002235);
+      flex-direction: column;
+      width: 100%;
+    }
+  .body {
+    padding-top: 60px;
+  }
+    .nav-item {
+      text-align: center;
+      width: 100%;
+    }
+
+    
+  }
+  
+  @media (max-width: 768px) {
+    .custom-navbar {
+      padding: 0.25rem 1rem;
+    }
+  }

@@ -1,0 +1,54 @@
+steps:
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['install']
+    timeout: '600s'  # Adjust timeout as needed
+
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['run', 'build']
+    timeout: '600s'  # Adjust timeout as needed
+
+  - name: 'gcr.io/cloud-builders/gsutil'
+    args: ['-m', 'rsync', '-r', 'build/', 'gs://configbuckett']
+  
+  # Docker Build
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [ 'build', '-t','asia-south1-docker.pkg.dev/block-convey-p1/react-repo/my-app:${SHORT_SHA}', '.' ]
+          
+  # Docker push to Google Artifact Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'asia-south1-docker.pkg.dev/block-convey-p1/react-repo/my-app:${SHORT_SHA}']
+
+  # Google Artifact Registry to cloud Run
+  # - name: 'gcr.io/cloud-builders/gcloud'
+  #   args: ['run', 'deploy', 'website', '--image', 'asia-south1-docker.pkg.dev/block-convey-p1/react-repo/my-app:latest', '--region', 'us-central1']
+
+  # deploy container image to GKE
+  # - name: "gcr.io/cloud-builders/gke-deploy"
+  #   args:
+  #   - run
+  #   - --filename=deployment.yaml
+  #   # - --image=asia-south1-docker.pkg.dev/block-convey-p1/react-repo/my-app
+  #   - --location=asia-south1
+  #   - --cluster=autopilot-cluster-1
+
+    # - name: "gcr.io/cloud-builders/gke-deploy"
+    # args:
+    # - run
+    # - --filename=service.yaml
+    # - --location=asia-south1
+    # - --cluster=autopilot-cluster-1
+
+    # - name: "gcr.io/cloud-builders/gke-deploy"
+    # args:
+    # - run
+    # - --filename=ingress.yaml
+    # - --location=asia-south1
+    # - --cluster=autopilot-cluster-1
+
+
+substitutions:
+  _BUCKET_NAME: configbuckett
+
+images:
+  - asia-south1-docker.pkg.dev/block-convey-p1/react-repo/my-app:${SHORT_SHA}
+

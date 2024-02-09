@@ -1,0 +1,84 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,87,91,1) 100%);
+  color: #ffffff;
+}
+
+.upload-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 0 20px;
+}
+
+.upload-heading {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.upload-box {
+  background: #081e23;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 600px;
+}
+
+.upload-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.upload-label {
+  background: #f4cb83;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.upload-label:hover {
+  background: darken(#f4cb83, 10%);
+}
+
+.upload-text {
+  font-size: 1.2rem;
+}
+
+.upload-input {
+  display: none; /* Hide the default input */
+}
+
+.progress-bar {
+  background: #c9a86e;
+  border-radius: 8px;
+  margin: 1rem 0;
+  width: 100%;
+  height: 1rem;
+}
+
+.progress {
+  height: 100%;
+  background: #f4cb83;
+  border-radius: 8px;
+  transition: width 0.4s ease;
+}
+
+.submit-btn {
+  background: #00576b;
+  color: #ffffff;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background: darken(#00576b, 10%);
+}

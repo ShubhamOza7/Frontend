@@ -1,0 +1,238 @@
+.home-container {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  background-image:linear-gradient(to right ,#1d1d1b, #002235); /* Solid color for the navbar */
+}
+
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px;
+  background-color: #000;
+  color: #fff;
+}
+
+.banner-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.banner-text {
+  max-width: 50%;
+}
+
+.banner-text h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.banner-text p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+
+
+
+.banner-image {
+  max-width: 50%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.banner-image img {
+  width: 100%;
+  height: auto;
+}
+
+
+.process-steps {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  margin-top: 5rem;
+ margin-bottom: 5rem;
+ background-image:linear-gradient(to right ,#1d1d1b, #002235); /* Solid color for the navbar */
+
+}
+
+
+.step-card {
+  background:none; /* Black background */
+  color: #fff; /* White text */
+  border: 4px dashed #f4cb83; /* Dashed border */
+  border-radius: 20px; /* Rounded corners */
+  padding: 20px;
+  width: 250px; /* Fixed card width */
+  text-align: center; /* Center text */
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  justify-content: space-between; /* Distribute space */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  transition: transform 0.3s ease;
+
+}
+
+.step-card:hover {
+  transform: translateY(-5px);
+}
+
+.step-circle {
+  background: #009688; /* Teal background */
+  color: #fff; /* White text */
+  border-radius: 50%; /* Circular border */
+  width: 50px; /* Circle size */
+  height: 50px; /* Circle size */
+  display: flex; /* Use flexbox for centering content */
+  align-items: center; /* Center content vertically */
+  justify-content: center; /* Center content horizontally */
+  font-weight: bold; /* Make number bold */
+  margin-bottom: 15px; /* Space below the number */
+  margin-right: 10px; 
+}
+
+
+
+.step-headline {
+  font-size: 1.2rem; /* Larger font size */
+  color: #f4cb83; /* Orange text */
+  margin: 15px 0; /* Space above and below headline */
+}
+
+.step-content {
+  display: flex;
+  align-items: center; /* Aligns items vertically in the center */
+}
+
+.step-text {
+  font-size: 1rem; /* Standard font size */
+  color: #fff; /* White text */
+  margin-bottom: 15px; /* Space below text */
+}
+
+
+.cta-section {
+  background-image:linear-gradient(to right ,#1d1d1b, #002235); /* Solid color for the navbar */
+  padding: 60px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the content vertically */
+}
+
+.cta-heading {
+  color: #f4cb83;
+  margin-bottom: 30px;
+}
+
+.cta-text {
+  color: #c9a86e;
+  margin-bottom: 2rem;  
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center; /* Center the buttons horizontally */
+  gap: 2rem; /* Adjust gap for space between buttons */
+}
+
+.cta-buttons .cta-button {
+  /* Additional button styles */
+  padding: 1rem 2rem;
+  margin: 0; /* Remove any margins from the individual buttons */
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: transparent;
+  border: 2px dashed #f4cb83;
+  border-radius: 50px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  outline: none;
+  display: flex;
+  justify-content: center; /* This will center the buttons in the container */
+  gap: 20px; /* This will add space between the two buttons */
+}
+
+.cta-buttons .cta-button::after {
+  /* Arrow styling */
+
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
+  transition: all 0.3s ease;
+}
+
+.cta-buttons .cta-button:hover {
+  background-color: #f4cb83;
+  color: #081e23;
+}
+
+.cta-buttons .cta-button:hover::after {
+  right: 1.5rem;
+}
+
+.signup {
+  background-color: #f4cb83;
+}
+
+.signup:hover {
+  background-color: darken(#f4cb83, 10%);
+}
+
+.login {
+  background-color: #c9a86e;
+}
+
+.login:hover {
+  background-color: darken(#c9a86e, 10%);
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+  .cta-button {
+    width: 80%; /* Full width buttons on smaller screens */
+    padding: 1rem;
+    font-size: 0.9rem; /* Smaller font size on smaller screens */
+  }
+
+  .step-card,
+  .cta-button::after {
+    right: 10px; /* Position arrow inside the button on smaller screens */
+  }
+}
+
+.line-container {
+  display: flex;
+  justify-content: center; /* Center the line horizontally */
+  align-items: center; /* Center the line vertically */
+  height: 100px; /* Adjust the height as needed */
+}
+
+.styled-line {
+  border: none;
+  height: 4px; /* Thickness of the line */
+  width: 80%; /* Length of the line */
+  background-image: linear-gradient(to right, transparent, #ffffff, transparent);
+}
+
+
+@media (max-width: 768px) {
+  .process-steps {
+    flex-direction: column; /* Stack cards vertically on smaller screens */
+    align-items: center; /* Center cards */
+  }
+
+  .step-card {
+    width: 80%; /* Full width cards on smaller screens */
+    margin-bottom: 20px; /* Space between stacked cards */
+  }
+}

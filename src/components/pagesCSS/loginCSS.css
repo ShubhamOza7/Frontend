@@ -1,0 +1,96 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6rem;
+  color: #F4CB83;
+}
+.card-body{
+  background-color: #081e23 !important;
+  font-family: Tahoma, Verdana, sans-serif;
+}
+
+.mb-3{
+  text-align: left;
+}
+
+.loginbr{
+  color: #F4CB83;
+}
+
+.plsenter{
+  color: #F4CB83;
+}
+
+.forgot{
+  color: #F4CB83;
+}
+.pass{
+  color: #F4CB83;
+}
+
+.email{
+  color: #F4CB83;
+}
+.login-heading {
+  text-decoration-color: #F4CB83;
+  font-size: 40px;
+}
+.border {
+  display: none;
+}
+.mb-0{
+  color: #F4CB83;
+}
+/* .shadow {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+} */
+
+.col-lg-6 {
+  transition: color 0.3s ease;
+}
+
+.col-lg-6:hover {
+  color: #00576B; 
+}
+
+.btn {
+  background-color: #F4CB83!important;
+  border-color: #F4CB83 !important;
+  color: #00576B !important;
+  width: 100px;
+  text-align: center;
+  position: relative;
+  margin: 0 auto;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color:#00576B!important; 
+}
+
+.fw-bold{
+   text-align: center;
+}
+
+.mb-5{
+  text-align: center;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--bs-body-color);
+  background-color: var(--bs-body-bg);
+  background-clip: padding-box;
+  border: var(--bs-border-width) solid var(--bs-border-color);
+  appearance: none;
+  border-radius: var(--bs-border-radius);
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
