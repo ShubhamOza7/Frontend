@@ -5,8 +5,9 @@ import { useDropzone } from 'react-dropzone';
 import Lottie from 'react-lottie';
 import animationData1 from '../../assets/upload.json';
 // Ensure the correct path to your CSS file
-import '/Users/aditiakhauri/Desktop/Upload/new/Frontend/src/components/pagesCSS/UploadCSS.css';
+import '../pagesCSS/UploadCSS.css';
 import Footer from '../inc/footer';
+import Navigation from '../inc/navigation';
 
 // Define Lottie animation options
 const defaultOptions1 = {
@@ -79,6 +80,7 @@ const Upload = () => {
 
   return (
     <div className="upload-container">
+      <Navigation/>
       {/* Navigation and Lottie animation */}
       <div {...getRootProps()} className={`dropzone ${isDragActive ? 'active' : ''}`}>
         {files.length === 0 && (
