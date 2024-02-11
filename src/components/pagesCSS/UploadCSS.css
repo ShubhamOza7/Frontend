@@ -59,6 +59,29 @@ body{
   /* font-weight:bolder !important; */
  
 }
+/* Assuming your previous CSS, add or modify: */
+
+.dropzone {
+  transition: transform 0.5s ease-in-out;
+}
+
+.dropzone-left {
+  transform: translateX(-50%); /* Adjust based on your layout */
+}
+
+.dropzone-right {
+  /* Ensure it matches the first dropzone but positions on the right */
+  transition: opacity 0.5s ease-in-out;
+  opacity: 1; /* You can animate this for a smoother appearance */
+}
+
+/* Adjust the center-dropzone-button style if needed */
+.center-dropzone-button {
+  position: absolute;
+  right: -25px; /* Adjust based on the new layout */
+  top: 50%;
+  /* Other styles remain unchanged */
+}
 
 
 .fontp{
@@ -150,6 +173,7 @@ body{
   outline: none;
   display: flex;
   justify-content: center; /* This will center the buttons in the container */
+  
   gap: 20px;
 }
 .submit-button .submit-button::after {
@@ -178,3 +202,5 @@ body{
   padding-left: 0; /* Remove padding if previously set */
   padding-right: 0; /* Remove padding if previously set */
 }
+
+
