@@ -1,98 +1,117 @@
-import React, { useState } from "react";
+// Import necessary hooks and components from React, React Router, and other libraries
+import React, { useCallback, useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import Navigation from "../inc/navigation";
-import Footer from "../inc/footer";
-import "../pagesCSS/UploadCSS.css";
-import { sendDataToBackend } from "../inc/apiService";
+import { useDropzone } from 'react-dropzone';
+import Lottie from 'react-lottie';
+import animationData1 from '../../assets/upload.json';
+// Ensure the correct path to your CSS file
+import '/Users/aditiakhauri/Desktop/Upload/new/Frontend/src/components/pagesCSS/UploadCSS.css';
+import Footer from '../inc/footer';
 
-const ImageUploadComponent = () => {
+// Define Lottie animation options
+const defaultOptions1 = {
+  loop: true,
+  autoplay: true, 
+  animationData: animationData1,
+  rendererSettings: {
+    preserveAspectRatio: 'xMidYMid slice'
+  }
+};
+
+// Upload component
+const Upload = () => {
   const navigate = useNavigate();
-  const [selectedImage, setSelectedImage] = useState(null);
-  const [selectedFile, setSelectedFile] = useState(null);
-  const [result, setResult] = useState(null);
-  const [progress, setProgress] = useState(0);
+  const [files, setFiles] = useState([]);
   const [showModal, setShowModal] = useState(false);
+  const [result, setResult] = useState('');
+  const [isPreviewVisible, setIsPreviewVisible] = useState(true);
+  const [analyzing, setAnalyzing] = useState(false);
 
-  const handleImageChange = (event) => {
-    if (event.target.files && event.target.files[0]) {
-      setSelectedImage(URL.createObjectURL(event.target.files[0]));
-      setSelectedFile(event.target.files[0]);
-    } else {
-      setSelectedImage(null);
+  // Function to handle file drop
+  const onDrop = useCallback(acceptedFiles => {
+    const file = acceptedFiles[0];
+    if (file && file.type.startsWith('image/')) {
+      setFiles([{
+        ...file,
+        preview: URL.createObjectURL(file)
+      }]);
     }
+  }, []);
+
+  // Function to simulate form submission
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setAnalyzing(true);
+    setShowModal(true);
+    setResult("Image analysis result here");
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setProgress(0);
-    const interval = setInterval(() => {
-      setProgress((prevProgress) => {
-        if (prevProgress === 100) {
-          clearInterval(interval);
-          setShowModal(true);
-        }
-        return Math.min(prevProgress + 10, 100);
-      });
-    }, 200);
-
-    const formData = new FormData();
-    formData.append("image", selectedFile);
-  
-    try {
-      const data = await sendDataToBackend("classify", formData); // Make sure this endpoint is correct
-      setResult(data.message);
-      // Handle the response data as needed
-    } catch (error) {
-      console.error("Failed to send data:", error);
-      // Handle the error appropriately
-    }
+  // Function to handle cancelation
+  const handleCancel = () => {
+    setAnalyzing(false);
   };
 
-  const handleClose = () => {
+  // Function to handle adding to blockchain (placeholder)
+  const handleAddToBlockchain = () => {
+    console.log("Adding to blockchain...");
+  };
+
+  // Function to close modal and navigate
+  const handleCloseModal = () => {
     setShowModal(false);
-    setProgress(0);
-    setSelectedImage(null);
-    setSelectedFile(null);
-    navigate("/dashboard");
+    navigate('/dashboard');
   };
+
+  // Enhanced re-upload function with transition effect
+  const handleReUpload = () => {
+    setIsPreviewVisible(false); // Start the transition
+    setTimeout(() => {
+      setFiles([]); // Clears out the current files state after the transition
+      setIsPreviewVisible(true); // Reset visibility for next upload
+    }, 300); // Delay in milliseconds matching the CSS transition
+  };
+
+  // Dropzone setup
+  const {getRootProps, getInputProps, isDragActive} = useDropzone({
+    onDrop,
+    multiple: false,
+  });
 
   return (
-    <>
-      <Navigation />
-      <div className="upload-container">
-        <h1 className="upload-heading">Upload Your Brain Scan</h1>
-        <div className="upload-box">
-          <form onSubmit={handleSubmit} className="upload-form">
-            {selectedImage ? (
-              <>
-                <img src={selectedImage} alt="Preview" className="image-preview" />
-                <button type="button" onClick={() => setSelectedImage(null)}>Reupload Image</button>
-              </>
+    <div className="upload-container">
+      {/* Navigation and Lottie animation */}
+      <div {...getRootProps()} className={`dropzone ${isDragActive ? 'active' : ''}`}>
+        {files.length === 0 && (
+          <>
+            <Lottie options={defaultOptions1} height={200} width={200} />
+            <input {...getInputProps()} />
+            {isDragActive ? (
+              <p>Drop the images here ...</p>
             ) : (
-              <label className="upload-label">
-                <span className="upload-text">Select an Image to Upload</span>
-                <input type="file" onChange={handleImageChange} className="upload-input" />
-              </label>
+              <p>Drag 'n' drop some images here, or click to select images</p>
             )}
-            <div className="progress-bar-container">
-              <div className="progress-bar" style={{ width: `${progress}%` }}></div>
-            </div>
-            {selectedImage && <button type="submit" className="submit-btn">Analyze Image</button>}
-          </form>
-        </div>
-        {showModal && (
-          <div className="modal">
-            <div className="modal-content">
-              <span className="close" onClick={handleClose}>&times;</span>
-              <p>{result}</p>
-              <button onClick={handleClose}>Close</button>
-            </div>
+          </>
+        )}
+
+        {/* Preview uploaded image with transition */}
+        {files.map(file => (
+          <div key={file.name} className={`preview-image ${!isPreviewVisible ? 'hidden' : ''}`}>
+            <img src={file.preview} alt="Preview" />
+            <p>{file.name}</p>
+          </div>
+        ))}
+
+        {/* Analyze and Re-upload Image buttons */}
+        {files.length > 0 && (
+          <div className="button-group">
+            <button onClick={handleSubmit} className="submit-button">Analyze Image</button>
+            <button onClick={handleReUpload} className="submit-button">Re-upload Image</button>
           </div>
         )}
       </div>
-      <Footer />
-    </>
+      <Footer/>
+    </div>
   );
 };
 
-export default ImageUploadComponent;
+export default Upload;

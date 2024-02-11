@@ -1,5 +1,13 @@
+
+body{
+ font-family: 'Poppins', sans-serif;
+  line-height: 1.6rem;
+  color: #F4CB83;
+  background-image:linear-gradient(to right ,#1d1d1b, #002235);
+}
 .sign{
     color: #F4CB83;
+   
 }
 
 .mb-5{

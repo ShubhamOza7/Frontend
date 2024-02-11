@@ -48,7 +48,7 @@ const Home = () => {
     {
       id: 2,
       headline: "Submit for Analysis",
-      text: "Submit the uploaded image to receive results by clicking on the submit icon.",
+      text: "Submit the uploaded image to receive results by clicking on the Analyse Image icon.",
       lottieOptions: defaultOptions2
     },
     {

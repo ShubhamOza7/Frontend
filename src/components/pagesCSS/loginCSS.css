@@ -2,10 +2,13 @@ body {
   font-family: 'Poppins', sans-serif;
   line-height: 1.6rem;
   color: #F4CB83;
+  background-image:linear-gradient(to right ,#1d1d1b, #002235);
 }
 .card-body{
-  background-color: #081e23 !important;
-  font-family: Tahoma, Verdana, sans-serif;
+  background-color: transparent!important;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 20px; /* Adjust for desired roundness */
+  border: 4px dashed #f4cb83 !important; 
 }
 
 .mb-3{
@@ -35,7 +38,8 @@ body {
   font-size: 40px;
 }
 .border {
-  display: none;
+  border-radius: 20px; /* Adjust for desired roundness */
+  border: 4px dashed #f4cb83; 
 }
 .mb-0{
   color: #F4CB83;
@@ -91,6 +95,7 @@ body {
   background-clip: padding-box;
   border: var(--bs-border-width) solid var(--bs-border-color);
   appearance: none;
-  border-radius: var(--bs-border-radius);
+  border-radius: 20px; /* Adjust for desired roundness */
+  border: 4px dashed #f4cb83; 
   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
