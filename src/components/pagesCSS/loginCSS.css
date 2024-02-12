@@ -1,101 +1,123 @@
 body {
   font-family: 'Poppins', sans-serif;
-  line-height: 1.6rem;
+  line-height: 1.6;
   color: #F4CB83;
-  background-image:linear-gradient(to right ,#1d1d1b, #002235);
-}
-.card-body{
-  background-color: transparent!important;
-  font-family: 'Poppins', sans-serif;
-  border-radius: 20px; /* Adjust for desired roundness */
-  border: 4px dashed #f4cb83 !important; 
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevents horizontal scroll */
+  background-image: url("../../assets/download.png") !important; /* Path to your background image */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; /* Cover the entire viewport */
 }
 
-.mb-3{
-  text-align: left;
+.company-logo {
+  display: block; /* Or inline-block, depending on your layout */
+  max-width: 300px; /* Adjust the size as needed */
+  margin: 1rem  auto ; /* Center the logo and add space below it */
 }
 
-.loginbr{
-  color: #F4CB83;
+.login-container {
+  display: flex;
+  justify-content: flex-end; /* Aligns the child (login-card) to the right */
+  align-items: center; /* Centers the child (login-card) vertically */
+  height: 100vh;
+  padding-right: 4rem; /* Add padding to the right side to not stick to the edge */
+  background-image: url("../../assets/download.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.plsenter{
-  color: #F4CB83;
+.login-card {
+  padding: 2rem;
+  background-color: transparent;
+  border-radius: 20px;
+  border: 4px dashed #f4cb83;
+  box-shadow: 0 8px 16px 0 rgba(83, 246, 8, 0.2);
+  width: 400px;
+  /* If you want to specify a distance from the right edge: */
+  margin-right: 4rem; /* Adjust the margin as needed */
+}
+.login-content {
+  margin-left: auto; /* Aligns the login form to the right */
 }
 
-.forgot{
-  color: #F4CB83;
-}
-.pass{
-  color: #F4CB83;
-}
-
-.email{
-  color: #F4CB83;
-}
 .login-heading {
-  text-decoration-color: #F4CB83;
-  font-size: 40px;
-}
-.border {
-  border-radius: 20px; /* Adjust for desired roundness */
-  border: 4px dashed #f4cb83; 
-}
-.mb-0{
   color: #F4CB83;
-}
-/* .shadow {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-} */
-
-.col-lg-6 {
-  transition: color 0.3s ease;
-}
-
-.col-lg-6:hover {
-  color: #00576B; 
-}
-
-.btn {
-  background-color: #F4CB83!important;
-  border-color: #F4CB83 !important;
-  color: #00576B !important;
-  width: 100px;
+  font-size: 40px;
   text-align: center;
-  position: relative;
-  margin: 0 auto;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 15px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  margin-top:0 ;
 }
 
-.btn:hover {
-  background-color:#00576B!important; 
-}
-
-.fw-bold{
-   text-align: center;
-}
-
-.mb-5{
+.login-subheading {
+  color: #F4CB83;
   text-align: center;
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  margin-bottom: 0.25rem;
+  
+}
+
+.form-group label{
+ color: #fff;
+  
 }
 
 .form-control {
   display: block;
   width: 100%;
-  padding: 0.375rem 0.75rem;
+  padding: 0.2rem 0.75rem;
   font-size: 1rem;
-  font-weight: 400;
   line-height: 1.5;
-  color: var(--bs-body-color);
-  background-color: var(--bs-body-bg);
+  background-color: #fff;
   background-clip: padding-box;
-  border: var(--bs-border-width) solid var(--bs-border-color);
-  appearance: none;
-  border-radius: 20px; /* Adjust for desired roundness */
-  border: 4px dashed #f4cb83; 
-  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  margin-bottom: 0.25rem; 
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.error-text {
+  color: red;
+  font-size: 0.875rem;
+  height: 1rem; /* Ensures consistent spacing even when there is no error message */
+}
+
+.login-button {
+  background-color: #F4CB83;
+  color: #00576B;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: #00576B;
+  color: #F4CB83;
+}
+
+.signup-text {
+  color: #F4CB83;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+a {
+  color: #00BFFF;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
