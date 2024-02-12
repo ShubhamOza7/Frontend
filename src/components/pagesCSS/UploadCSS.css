@@ -11,17 +11,20 @@ body{
 }
 
 .upload-container {
-  
+  background-image:url('../../assets/bg.gif'); 
  /* background: linear-gradient(to right ,#1d1d1b, #002235)!important; */
-  margin-top: 5%;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  font-family: 'Poppins', sans-serif;
-  background: transparent;
-  height: 100vh; /* Use full viewport height */
-  padding-top: 50px; 
-  gap: 20px;/* Adjust based on your header or desired space from the top */
+ margin-top: 5%;
+ display: flex;
+ align-items: center;
+ flex-direction: column;
+ font-family: 'Poppins', sans-serif;
+ background-position: center;
+ background-repeat: no-repeat;
+ background-size:cover;
+ width: 100vw;
+ height: 100vh; /* Use full viewport height */
+ padding-top: 50px; 
+ gap: 20px;/* Adjust based on your header or desired space from the top */
 }
 
 .dropzone {
