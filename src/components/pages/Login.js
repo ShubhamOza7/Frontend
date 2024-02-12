@@ -1,5 +1,4 @@
-import { useState, useEffect } from "react";
-import { Col, Row, Container, Card, Form } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../pagesCSS/loginCSS.css";
 import { sendDataToBackend } from "../inc/apiService";
@@ -19,10 +18,11 @@ function Login() {
   };
 
   useEffect(() => {
-    console.log(formErrors);
+    if (Object.keys(formErrors).length === 0 && isSubmit) {
+      validateData(formValues);
+    }
   }, [formErrors]);
 
-  // validate function
   const validate = (values) => {
     const errors = {};
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
@@ -73,72 +73,46 @@ function Login() {
     }
   };
 
+
+
   return (
-    <div>
-      <Container>
-        <Row className="vh-100 d-flex justify-content-center align-items-center">
-          <Col md={8} lg={6} xs={12}>
-            <Card className="card-body">
-              <div className="mb-3 mt-md-4">
-                <h2 className="loginbr fw-bold mb-2 text-uppercase ">Log In</h2>
-                <p className="plsenter mb-5">Please enter your credentials</p>
-                <div className="mb-3">
-                  <Form onSubmit={handleSubmit}>
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
-                      <Form.Label className="email">
-                        Email address
-                      </Form.Label>
-                      <Form.Control
-                        type="text"
-                        name="email"
-                        placeholder="Email"
-                        value={formValues.email}
-                        onChange={handleChange}
-                      />
-                    </Form.Group>
-                    <p style={{ color: "red" }}>{formErrors.email}</p>
-
-                    <Form.Group className="mb-3" controlId="formBasicPassword">
-                      <Form.Label className="pass">Password</Form.Label>
-                      <Form.Control
-                        type="password"
-                        name="password"
-                        placeholder="Password"
-                        value={formValues.password}
-                        onChange={handleChange}
-                      />
-                    </Form.Group>
-                    <p style={{ color: "red" }}>{formErrors.password}</p>
-
-                    <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                      {/* <p className="small">
-                        <a className="forgot text-primary" href="#!">
-                          Forgot password?
-                        </a>
-                      </p> */}
-                    </Form.Group>
-                    <div className="d-grid">
-                      <button type="submit" class="btn btn-primary">
-                        {/* <Link to="/dashboard" className="nav-link text-white"> */}
-                        Enter
-                        {/* </Link> */}
-                      </button>
-                    </div>
-                  </Form>
-                  <div className="mt-3">
-                    <p className="mb-0  text-center">
-                      Don't have an account?{" "}
-                      <Link to="/signin" className="text-primary fw-bold">
-                        Sign Up
-                      </Link>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </Card>
-          </Col>
-        </Row>
-      </Container>
+    <div className="login-container">
+      <div className="login-card">
+        <div className="login-content">
+          <h2 className="login-heading">Log In</h2>
+          <p className="login-subheading">Please enter your credentials</p>
+          <form onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label>Email address</label>
+              <input
+                type="text"
+                name="email"
+                placeholder="Email"
+                value={formValues.email}
+                onChange={handleChange}
+                className="form-control"
+              />
+              <p className="error-text">{formErrors.email}</p>
+            </div>
+            <div className="form-group">
+              <label>Password</label>
+              <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                value={formValues.password}
+                onChange={handleChange}
+                className="form-control"
+              />
+              <p className="error-text">{formErrors.password}</p>
+            </div>
+            <button type="submit" className="login-button">Log In</button>
+          </form>
+          <p className="signup-text">
+            Don't have an account? <Link to="/signin">Sign Up</Link>
+          </p>
+        </div>
+      </div>
     </div>
   );
 }
